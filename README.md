@@ -7,7 +7,7 @@ Take aback
      Meaning: Surprise or shock; to discomfit
      Example: The bad news took us aback.
 
-And display in terminal random "Meaning" line, then after pressing any key display next random line and so till every line will be displayed. 
+And display in terminal random "Meaning" line, then after pressing `ENTER` display next random line and so till every line will be displayed. 
 
 Simple usage is learn by heart all meanings from the printed description file and then in order to check whether everything is memorised or not - run the application and answer which phrasal verb that meaning describes
 
