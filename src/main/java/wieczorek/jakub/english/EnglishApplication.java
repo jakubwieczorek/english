@@ -32,6 +32,7 @@ public class EnglishApplication implements CommandLineRunner
     @Override
     public void run(String... aArgs) throws Exception
     {
+        // parse args
         if(aArgs.length == 0)
         {
             System.out.println("give a path and filename as argument");
@@ -40,8 +41,9 @@ public class EnglishApplication implements CommandLineRunner
 
         String path = aArgs[0];
 
-        List<String> lines;
 
+        // parse lines
+        List<String> lines;
         try
         {
             lines = fileParser.parseFile(path);
@@ -51,16 +53,25 @@ public class EnglishApplication implements CommandLineRunner
             return;
         }
 
+        // server lines
         Random randomGenerator = new Random();
+
+        String line = lines.get(randomGenerator.nextInt(lines.size()));
+        System.out.println(line);
+
+        lines.remove(line);
 
         while(!lines.isEmpty())
         {
-            String line = lines.get(randomGenerator.nextInt(lines.size()));
-            System.out.println(line);
+            char c = (char) System.in.read();
 
-            lines.remove(line);
+            if(c == '\n')
+            {
+                line = lines.get(randomGenerator.nextInt(lines.size()));
+                System.out.println(line);
 
-            System.in.read();
+                lines.remove(line);
+            }
         }
     }
 }

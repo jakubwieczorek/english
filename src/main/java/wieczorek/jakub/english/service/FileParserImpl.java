@@ -20,8 +20,6 @@ public class FileParserImpl implements FileParser
 
         Predicate<String> meaningLineCondition = line -> finalLines.stream().anyMatch((nothing) -> line.contains("Meaning"));
 
-        List<String> meaningLines = finalLines.stream().filter(meaningLineCondition).collect(Collectors.toList());
-
-        return meaningLines;
+        return finalLines.stream().filter(meaningLineCondition).collect(Collectors.toList());
     }
 }
